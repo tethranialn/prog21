@@ -16,6 +16,7 @@ struct structure
 	char temp;
 	int count;
 	int size;
+	int result;
 };
 void main()
 {
@@ -33,6 +34,7 @@ void main()
 	}
 	structure text;
 	text.size = -1;
+	text.result = 0;
 	input >> text.temp;
 	if (input.eof())
 	{
@@ -54,4 +56,20 @@ void main()
 		text.string[text.size] = text.temp;
 		cout << text.string[text.size];
 	} while (text.string[text.size]!=text.separator && text.string[text.size] != text.marker && text.string[text.size] != '\n' && text.string[text.size] != input.eof() && text.size <= N);
+	text.temp = '1';
+	for (int k = 0; k < text.count; k++)
+	{
+		char first, last; unsigned i = 0, j = text.size;
+		while(text.string[i] != ' ')
+		{
+			last = text.string[i];
+			i++;
+		}
+		while(text.string[j] != ' ')
+		{
+			first = text.string[j];
+			j--;
+		}
+		if (first == last) text.result++;
+	}
 }
