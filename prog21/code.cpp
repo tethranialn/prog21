@@ -18,6 +18,7 @@ struct structure
 	int size;
 	int result;
 };
+void wordsCount(structure& text);
 void main()
 {
 	input.open("InputFile.txt");
@@ -57,7 +58,9 @@ void main()
 		cout << text.string[text.size];
 	} while (text.string[text.size]!=text.separator && text.string[text.size] != text.marker && text.string[text.size] != '\n' && text.string[text.size] != input.eof() && text.size <= N);
 	text.temp = '1';
-	for (int k = 0; k < text.count; k++)
+	wordsCount(text);
+	int count = text.count / 2;
+	for (int k = 0; k < count; k++)
 	{
 		char first, last; unsigned i = 0, j = text.size;
 		while(text.string[i] != ' ')
@@ -72,4 +75,9 @@ void main()
 		}
 		if (first == last) text.result++;
 	}
+	//cout << endl << text.result;
+}
+void wordsCount(structure& text)
+{
+	text.count = 5;
 }

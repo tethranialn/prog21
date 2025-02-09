@@ -2,7 +2,7 @@
 C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(5,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(6,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
 C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(7,10): warning C4067: непредвиденные лексемы за директивой препроцессора, требуется newline
-C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(21,6): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
-C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(55,109): warning C4805: ==: небезопасное смешение типа "char" и типа "bool" в операции
-C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(58,163): warning C4805: !=: небезопасное смешение типа "char" и типа "bool" в операции
+C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(22,6): warning C4326: возвращаемый тип "main" должен быть "int", а не "void"
+C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(56,109): warning C4805: ==: небезопасное смешение типа "char" и типа "bool" в операции
+C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\code.cpp(59,163): warning C4805: !=: небезопасное смешение типа "char" и типа "bool" в операции
   prog21.vcxproj -> C:\Users\tethranialn.DESKTOP-QE28BKQ\OneDrive\Documents\prog21\prog21\x64\Debug\prog21.exe
