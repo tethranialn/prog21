@@ -1,1 +1,4 @@
 marker: @	separator: *
+readed text:
+The quick brown fox jumps over the lazy dog the dog barked loudly at the fox the fox ran quickly aw
+result (coupels of words): 0

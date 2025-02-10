@@ -21,14 +21,17 @@ struct structure
 void wordsCount(structure& text);
 void readFile(structure& text);
 void process(structure& text);
-void openFiles();
+void out(structure text);
+void files(int a);
 void main()
 {
 	structure text;
-	openFiles();
+	files(0);
 	readFile(text);
 	wordsCount(text);
 	process(text);
+	out(text);
+	files(1);
 }
 void wordsCount(structure& text)
 {
@@ -58,7 +61,6 @@ void readFile(structure& text)
 	}
 	input.seekg(-1, ios::cur);
 	input >> text.marker >> text.separator;
-	output << "marker: " << text.marker << "\tseparator: " << text.separator << endl;
 	for (int i = 0; text.temp != text.separator; i++)
 	{
 		input >> skipws >> text.temp;
@@ -69,9 +71,8 @@ void readFile(structure& text)
 		input >> noskipws >> text.temp;
 		if (text.temp == text.separator || text.temp == text.marker || text.temp == '\n' || text.temp == input.eof()) break;
 		text.string[text.size] = text.temp;
-		cout << text.string[text.size];
-	} while (text.string[text.size] != text.separator && text.string[text.size] != text.marker && text.string[text.size] != '\n' && text.string[text.size] != input.eof() && text.size <= N);
-	text.temp = '1';
+	} while (text.string[text.size] != text.separator && text.string[text.size] != text.marker && text.string[text.size] != '\n' && text.string[text.size] != input.eof() && text.size < N);
+	text.string[text.size] = text.marker;
 	return;
 }
 void process(structure& text)
@@ -80,7 +81,9 @@ void process(structure& text)
 	if (text.count % 2 != 0) count++;
 	for (int k = 0; k < count; k++)
 	{
-		char first, last; unsigned i = 0, j = text.size;
+		int size = 0;
+		while (text.string[size] != text.marker) size++;
+		char first, last; unsigned i = 0, j = size - 1;
 		while (text.string[i] != ' ')
 		{
 			last = text.string[i];
@@ -93,22 +96,42 @@ void process(structure& text)
 		}
 		if (first == last) text.result++;
 	}
-	cout << endl << text.result;
 	return;
 }
-void openFiles()
+void files(int a)
 {
-	input.open("InputFile.txt");
-	if (!input.is_open())
+	if (a == 0)
 	{
-		cout << "input file is not open or does not exist. please, restart the programm";
-		return;
+		input.open("InputFile.txt");
+		if (!input.is_open())
+		{
+			cout << "input file is not open or does not exist. please, restart the programm";
+			return;
+		}
+		output.open("OutputFile.txt");
+		if (!output.is_open())
+		{
+			cout << "output file is not open or does not exist. please, restart the programm";
+			return;
+		}
+
 	}
-	output.open("OutputFile.txt");
-	if (!output.is_open())
+	else
 	{
-		cout << "output file is not open or does not exist. please, restart the programm";
+		input.close();
+		output.close();
 		return;
 	}
 	return;
+}
+void out(structure text)
+{
+	int i = 1;
+	output << "marker: " << text.marker << "\tseparator: " << text.separator << endl << "readed text:" << endl;
+	do
+	{
+		output << text.string[i-1];
+		i++;
+	} while (text.string[i] != text.marker);
+	output << endl << "result (coupels of words): " << text.result << endl;
 }

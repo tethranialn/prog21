@@ -30,9 +30,9 @@
               "Title": "code.cpp",
               "DocumentMoniker": "C:\\Users\\tethranialn.DESKTOP-QE28BKQ\\OneDrive\\Documents\\prog21\\prog21\\code.cpp",
               "RelativeDocumentMoniker": "code.cpp",
-              "ToolTip": "C:\\Users\\tethranialn.DESKTOP-QE28BKQ\\OneDrive\\Documents\\prog21\\prog21\\code.cpp*",
-              "RelativeToolTip": "code.cpp*",
-              "ViewState": "AgIAABAAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\tethranialn.DESKTOP-QE28BKQ\\OneDrive\\Documents\\prog21\\prog21\\code.cpp",
+              "RelativeToolTip": "code.cpp",
+              "ViewState": "AgIAAEwAAAAAAAAAAAAYwFUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-02-09T19:33:14.939Z",
               "IsPinned": true,
@@ -50,7 +50,7 @@
               "RelativeDocumentMoniker": "InputFile.txt",
               "ToolTip": "C:\\Users\\tethranialn.DESKTOP-QE28BKQ\\OneDrive\\Documents\\prog21\\prog21\\InputFile.txt",
               "RelativeToolTip": "InputFile.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
               "WhenOpened": "2025-02-09T19:46:58.902Z",
               "EditorCaption": ""
@@ -63,9 +63,10 @@
               "RelativeDocumentMoniker": "OutputFile.txt",
               "ToolTip": "C:\\Users\\tethranialn.DESKTOP-QE28BKQ\\OneDrive\\Documents\\prog21\\prog21\\OutputFile.txt",
               "RelativeToolTip": "OutputFile.txt",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAABjAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003109|",
-              "WhenOpened": "2025-02-09T19:46:59.185Z"
+              "WhenOpened": "2025-02-09T19:46:59.185Z",
+              "EditorCaption": ""
             }
           ]
         }
