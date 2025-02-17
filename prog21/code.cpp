@@ -14,7 +14,7 @@ struct structure
 	char marker;
 	char separator;
 	char temp;
-	int count;
+	int count = 0;
 	int size = -1;
 	int result = 0;
 };
@@ -23,15 +23,37 @@ void readFile(structure& text);
 void process(structure& text);
 void out(structure text);
 void files(int a);
+void altReadFile(structure& text);
 void main()
 {
-	structure text;
-	files(0);
-	readFile(text);
+	structure text; int choose;
+	cout << "choose program version (1 or 2): ";
+	cin >> choose;
+	switch (choose)
+	{
+	case 1: 
+	{
+		files(1);
+		readFile(text);
+		break;
+	}
+	case 2:
+	{
+		files(2);
+		altReadFile(text);
+		break;
+	}
+	default:
+	{
+		cout << "chosen version does not exist";
+		return;
+	}
+	}
+	if (text.size <= 0) return;
 	wordsCount(text);
 	process(text);
 	out(text);
-	files(1);
+	files(0);
 }
 void wordsCount(structure& text)
 {
@@ -49,6 +71,39 @@ void wordsCount(structure& text)
 		}
 		else i++;
 	}
+	return;
+}
+void altReadFile(structure& text)
+{
+	input >> text.marker;
+	if (input.eof())
+	{
+		cout << "file is empty";
+		return;
+	}
+	input >> text.size;
+	if (text.size <= 0)
+	{
+		output << "readed from file size less than 1 and programm can not be executed";
+		return;
+	}
+	if (text.size > N) text.size = N;
+	int i = -1;
+	input >> noskipws >> text.temp;
+	while(text.temp == ' ')
+	{
+		input >> noskipws >> text.temp;
+	}
+	input.seekg(-1, ios::cur);
+	do
+	{
+		i++;
+		input >> noskipws >> text.temp;
+		if (text.temp == text.marker || text.temp == '\n' || text.temp == input.eof()) break;
+		text.string[i] = text.temp;
+	} while (i < text.size && text.string[i] != text.marker && text.string[i] != '\n' && text.string[i] != input.eof());
+	text.size = i;
+	text.string[text.size] = text.marker;
 	return;
 }
 void readFile(structure& text)
@@ -79,19 +134,30 @@ void process(structure& text)
 {
 	int count = text.count / 2;
 	if (text.count % 2 != 0) count++;
+	int size = 0;
+	while (text.string[size] != text.marker) size++;
+	char first, last; unsigned i = 0, j = size - 1;
 	for (int k = 0; k < count; k++)
 	{
-		int size = 0;
-		while (text.string[size] != text.marker) size++;
-		char first, last; unsigned i = 0, j = size - 1;
 		while (text.string[i] != ' ')
 		{
 			last = text.string[i];
 			i++;
 		}
+		i++;
+		while (text.string[j] == ' ')
+		{
+			text.temp = text.string[j];
+			j--;
+		}
 		while (text.string[j] != ' ')
 		{
 			first = text.string[j];
+			j--;
+		}
+		while (text.string[j] == ' ')
+		{
+			text.temp = text.string[j];
 			j--;
 		}
 		if (first == last) text.result++;
@@ -100,7 +166,15 @@ void process(structure& text)
 }
 void files(int a)
 {
-	if (a == 0)
+	switch (a)
+	{
+	case 0:
+	{
+		input.close();
+		output.close();
+		return;
+	}
+	case 1:
 	{
 		input.open("InputFile.txt");
 		if (!input.is_open())
@@ -114,24 +188,41 @@ void files(int a)
 			cout << "output file is not open or does not exist. please, restart the programm";
 			return;
 		}
-
+		break;
 	}
-	else
+	case 2:
 	{
-		input.close();
-		output.close();
+		input.open("AltInputFile.txt");
+		if (!input.is_open())
+		{
+			cout << "input file is not open or does not exist. please, restart the programm";
+			return;
+		}
+		output.open("OutputFile.txt");
+		if (!output.is_open())
+		{
+			cout << "output file is not open or does not exist. please, restart the programm";
+			return;
+		}
+		break;
+	}
+	default:
+	{
+		cout << "unknown error";
 		return;
 	}
+	}
 	return;
+
 }
 void out(structure text)
 {
-	int i = 1;
-	output << "marker: " << text.marker << "\tseparator: " << text.separator << endl << "readed text:" << endl;
+	int i = 0;
+	output << /*"marker: " << text.marker << "\tseparator: " << text.separator << endl << */"readed text:" << endl;
 	do
 	{
-		output << text.string[i-1];
+		output << text.string[i];
 		i++;
 	} while (text.string[i] != text.marker);
-	output << endl << "result (coupels of words): " << text.result << endl;
+	output << endl << "result: " << text.result * 2;
 }
